@@ -1,0 +1,24 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/
+..\FrameXML\UI.xsd">
+	<Script file="TitanBonusXP.lua"/>
+	<Frame parent="UIParent">
+		<Frames>
+			<Button name="TitanPanelBonusXPButton" inherits="TitanPanelComboTemplate" frameStrata="FULLSCREEN" toplevel="true">
+			<!-- SDK : TitanPanelComboTemplate gives Titan various hooks. The scripts below need to add those hooks since they override the template. -->
+				<Scripts>
+					<OnLoad>
+						TitanBonusXP.Button_OnLoad(self); <!-- Your addon code -->
+						TitanPanelButton_OnLoad(self); <!-- SDK : for Titan to register your addon -->
+					</OnLoad>
+					<OnEvent>
+						TitanBonusXP.Button_OnEvent(self, event, ...); <!-- Your addon code -->
+					</OnEvent>
+					<OnClick>
+						TitanBonusXP.Button_OnClick(self, button); <!-- Your addon code -->
+						TitanPanelButton_OnClick(self, button); <!-- SDK : for Titan to create the R click menu for your addon -->
+					</OnClick>					
+				</Scripts>
+			</Button>
+		</Frames>
+	</Frame>		
+</Ui>
